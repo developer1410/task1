@@ -1,0 +1,109 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+###
+
+POST {{url}}/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "first_name": "user_first_name",
+    "last_name": "created_user_last_name",
+    "email": "new_user1@gmail.com",
+    "password": "12345678",
+    "test": "test"
+}
+
+###
+
+POST {{url}}/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "new_user1@gmail.com",
+    "password": "12345678"
+}
+
+### Get list of users
+
+#GET {{url}}/users
+#GET {{url}}/users?per_page=5
+#GET {{url}}/users?per_page=5&page=2
+GET {{url}}/users
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Get current user info
+
+GET {{url}}/user
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+PUT {{url}}/user
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "first_name": "first_name_updated",
+    "email": "updated@email.com",
+    "bearer_token": "test"
+}
+
+###
+
+DELETE {{url}}/user
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### GET LITS of users
+
+#GET {{url}}/tasks?status_id=3
+#GET {{url}}/tasks?creator_id=3
+#GET {{url}}/tasks?creator_id=3&assigned_user_id=2
+#GET {{url}}/tasks?order[column]=creator_name&order[type]=desc&page=2&per_page=3
+#GET {{url}}/tasks?order[column]=creator_created_at&order[type]=desc
+GET {{url}}/tasks?status=View
+Accept: application/json
+Authorization: Bearer {{token}}
+
+### Create new task
+
+POST {{url}}/tasks
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Create new task",
+    "description": "New task. Need to fix this.",
+    "status_id": 1
+}
+
+### Update task
+
+PUT {{url}}/tasks/13
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Update new task 3",
+    "description": "Update new task",
+    "status_id": 3
+}
+
+### Remove task
+
+DELETE {{url}}/tasks/13
+Accept: application/json
+
+###
