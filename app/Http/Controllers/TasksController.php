@@ -21,7 +21,7 @@ class TasksController extends Controller
             'order.column' => 'filled|string',
             'order.type' => 'filled|string',
             // Filters
-            'status_id' => 'int',
+            'status' => 'string',
             'creator_id' => 'int',
             'assigned_user_id' => 'int'
         ]);
@@ -48,7 +48,8 @@ class TasksController extends Controller
 
         $orders = [
             'status' => 'ts.name',
-            'tasks.title' => 'tasks.title',
+            'tasks_title' => 'tasks.title',
+            'creator_id' => 'creator.id',
             'creator_name' => DB::raw('CONCAT_WS(" ", creator.first_name, creator.last_name)'),
             'creator_created_at' => 'creator.created_at',
             'assigned_user_name' => DB::raw('CONCAT_WS(" ", assigned_user.first_name, assigned_user.last_name)'),

@@ -64,12 +64,10 @@ DELETE {{url}}/user
 Accept: application/json
 Authorization: Bearer {{token}}
 
-### GET LITS of users
+### GET LITS of tasks
 
 #GET {{url}}/tasks?status_id=3
-#GET {{url}}/tasks?creator_id=3
-#GET {{url}}/tasks?creator_id=3&assigned_user_id=2
-#GET {{url}}/tasks?order[column]=creator_name&order[type]=desc&page=2&per_page=3
+#GET {{url}}/tasks?order[column]=creator_id&order[type]=desc&page=2&per_page=3
 #GET {{url}}/tasks?order[column]=creator_created_at&order[type]=desc
 GET {{url}}/tasks?status=View
 Accept: application/json
