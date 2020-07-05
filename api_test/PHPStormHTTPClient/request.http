@@ -64,6 +64,12 @@ DELETE {{url}}/user
 Accept: application/json
 Authorization: Bearer {{token}}
 
+### GET list of tasks statuses
+
+GET {{url}}/tasks/statuses
+Accept: application/json
+Authorization: Bearer {{token}}
+
 ### GET LITS of tasks
 
 #GET {{url}}/tasks?status_id=3

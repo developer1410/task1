@@ -36,6 +36,7 @@ Route::middleware('auth.bearer_token')->group(function() {
     Route::get('/tasks', 'TasksController@index');
     Route::post('/tasks', 'TasksController@create');
     Route::put('/tasks/{task}', 'TasksController@update');
-    ROute::delete('/tasks/{task}', 'TasksController@destroy');
+    Route::delete('/tasks/{task}', 'TasksController@destroy');
+    Route::get('/tasks/statuses', 'TasksStatusesController@index');
 
 });

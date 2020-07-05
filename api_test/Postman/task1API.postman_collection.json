@@ -297,13 +297,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/tasks/stases",
+							"raw": "{{url}}/tasks/statuses",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"tasks",
-								"stases"
+								"statuses"
 							]
 						},
 						"description": "User must be authorized for this operation.\r\nUsing bearer token, received in /login operation"
