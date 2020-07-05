@@ -52,7 +52,9 @@ class TasksController extends Controller
             'status_id' => $request->status_id
         ]);
 
-        abort_if(empty($task), 500, 'Can not create new task!');
+        if(empty($task))
+            return response()->json(['message' => 'Can not create new task!'], 500);
+
 
         return response()->json([
             'task_id' => $task->id
@@ -70,7 +72,8 @@ class TasksController extends Controller
         $update = $request->only(['assigned_user_id', 'title', 'description',
             'status_id', 'estimation_date', 'started_date']);
 
-        abort_if(empty($update), 400, 'Empty request');
+        if(empty($update))
+            return response()->json(['message' => 'Empty request'], 400);
 
         if($task->update($update)) {
             $status =200;

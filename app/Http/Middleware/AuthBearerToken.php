@@ -20,15 +20,14 @@ class AuthBearerToken
         $token = $request->bearerToken();
 
         // Abort if bearer token is empty
-        abort_if(empty($token), 401, 'Unauthorized');
+        if(empty($token)) return response()->json(['message' => 'Unauthorized'], 401);
 
         $user = User::where('bearer_token', $token)->first();
 
-        // Abort if user with such token not found
-        abort_if(empty($user), 401, 'Unauthorized');
+        if(empty($user)) return response()->json(['message' => 'Unauthorized'], 401);
 
         // Abort if token expired
-        abort_if(now() >= $user->bearer_token_expire_at, 401, 'TokenExpired');
+        if(now() >= $user->bearer_token_expire_at) return response()->json(['message' => 'TokenExpired'], 401);
 
         // Set current user
         Auth::setUser($user);
