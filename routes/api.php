@@ -33,10 +33,10 @@ Route::middleware('auth.bearer_token')->group(function() {
     Route::get('/users', 'UsersController@index');
 
     // Tasks
-    Route::get('/tasks', 'TasksController@index');
-    Route::post('/tasks', 'TasksController@create');
-    Route::put('/tasks/{task}', 'TasksController@update');
-    Route::delete('/tasks/{task}', 'TasksController@destroy');
+    Route::resource('/tasks', 'TasksController', ['only' => [
+        'index', 'store', 'update', 'destroy'
+    ]]);
+
     Route::get('/tasks/statuses', 'TasksStatusesController@index');
 
 });

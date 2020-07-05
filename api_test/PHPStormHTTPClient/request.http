@@ -35,7 +35,7 @@ Accept: application/json
 #GET {{url}}/users
 #GET {{url}}/users?per_page=5
 #GET {{url}}/users?per_page=5&page=2
-GET {{url}}/users
+GET {{url}}/users?page=tree
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -75,7 +75,8 @@ Authorization: Bearer {{token}}
 #GET {{url}}/tasks?status_id=3
 #GET {{url}}/tasks?order[column]=creator_id&order[type]=desc&page=2&per_page=3
 #GET {{url}}/tasks?order[column]=creator_created_at&order[type]=desc
-GET {{url}}/tasks?status=View
+#GET {{url}}/tasks?status=View
+GET {{url}}/tasks?order[column]=creator_id&order[type]=asc&per_page=12
 Accept: application/json
 Authorization: Bearer {{token}}
 
@@ -94,7 +95,7 @@ Authorization: Bearer {{token}}
 
 ### Update task
 
-PUT {{url}}/tasks/13
+PUT {{url}}/tasks/1
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -105,9 +106,23 @@ Authorization: Bearer {{token}}
     "status_id": 3
 }
 
+### Update users who is assigned to task
+
+PUT {{url}}/tasks/1
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+
+{
+    "assigned_user_id": 3
+}
+
+
+
 ### Remove task
 
 DELETE {{url}}/tasks/13
 Accept: application/json
+Authorization: Bearer {{token}}
 
 ###

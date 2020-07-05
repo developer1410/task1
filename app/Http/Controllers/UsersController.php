@@ -19,8 +19,7 @@ class UsersController
     public function index(Request $request)
     {
         $request->validate([
-            'per_page' => 'int',
-            'page' => 'int'
+            'per_page' => 'int'
         ]);
 
         $per_page = $request->per_page

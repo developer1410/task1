@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\UserData;
+use App\Http\Requests\UsersRequest;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -14,10 +14,10 @@ class UserController extends Controller
 {
     /**
      * Register new user
-     * @param UserData $request
+     * @param UsersRequest $request
      * @return Response
      */
-    public function register(UserData $request) {
+    public function register(UsersRequest $request) {
         $validatedData = $request->validationData();
 
         $user = User::create($validatedData);
@@ -86,7 +86,6 @@ class UserController extends Controller
            'email' => $user->email,
            'is_email_verified' => $user->is_email_verified,
            'created_at' => $user->created_at
-
        ]);
     }
 
