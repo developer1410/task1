@@ -35,7 +35,7 @@ Accept: application/json
 #GET {{url}}/users
 #GET {{url}}/users?per_page=5
 #GET {{url}}/users?per_page=5&page=2
-GET {{url}}/users?page=tree
+GET {{url}}/users
 Accept: application/json
 Authorization: Bearer {{token}}
 
